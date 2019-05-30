@@ -5,9 +5,7 @@ import requests
 import time
 import argparse
 
-# TODO: entropy investigation, based on non-malicious processes and based on known random malwares
-# TODO: use a default known_process output in learning mode if it is not provided
-# TODO: format the output as well (json)
+
 
 # C:\ProgramData\osquery>osqueryi.exe -csv "select p.pid, p.name, p.path, p.parent, p.cmdline, p.start_time, p.elapsed_time,
 # p.on_disk, h.md5, h.sha256 from processes p left outer join hash h on p.path=h.path" > output_wc1
