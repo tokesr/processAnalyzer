@@ -11,7 +11,7 @@ import argparse
 # p.on_disk, h.md5, h.sha256 from processes p left outer join hash h on p.path=h.path" > output_wc1
 
 global ADAPTING
-# investigating filename masquerading with types (similar filenames)
+# investigating filename masquerading with typos (similar filenames)
 
 global VERBOSE
 # show verbose output logs
@@ -63,8 +63,24 @@ def createProcessFromCsv(csv_file, delimiter):
 	csvreader = csv.DictReader(open(csv_file,"r"),delimiter=delimiter)
 	tmp_list = []
 	for row in csvreader:
-		tmp_list.append(Process(row['pid'], row['parent'], row['name'], row['path'], row['cmdline'], \
-			row['start_time'], row['elapsed_time'], row['on_disk'], row['md5'], row['sha256'], row))
+		#Name is mandatory for analysis
+		#TODO stop if there is no name attribute
+
+		tmp_pid = row['pid'] if 'pid' in row.keys() else int(-1)
+		tmp_parent = row['parent'] if 'parent' in row.keys() else ""
+
+		tmp_path = row['path'] if 'path' in row.keys() else ""
+		tmp_cmdline = row['cmdline'] if 'cmdline' in row.keys() else ""
+		tmp_start = row['start_time'] if 'start_time' in row.keys() else None
+		tmp_elapsed = row['elapsed_time'] if 'elapsed_time' in row.keys() else None
+		tmp_on_disk = row['on_disk'] if 'on_disk' in row.keys() else int(-1)
+		tmp_md5 = row['md5'] if 'md5' in row.keys() else ""
+		tmp_sha256 = row['sha256'] if 'sha256' in row.keys() else ""
+
+
+
+		tmp_list.append(Process(tmp_pid, tmp_parent, row['name'], tmp_path, tmp_cmdline, \
+			tmp_start, tmp_elapsed, tmp_on_disk, tmp_md5, tmp_sha256, row))
 	return tmp_list
 
 
@@ -199,7 +215,7 @@ def analizeProcess(proc, known_processes, process_list, mode, adapted_name=None)
 			baseline_process.update({'parent':par})
 
 	elif (baseline_process == None and mode == 'learning'):
-		print("Add new entries")
+		verbosePrint("Add new entries")
 		# if there is no entry for this one in the file
 		# and we are in a learning mode, then create a new json entry
 		new_process_entry = {}
@@ -252,7 +268,6 @@ def analizeProcess(proc, known_processes, process_list, mode, adapted_name=None)
 
 
 def checkOnVirusTotal(apikey, process_list, hashfile):
-	#don't request the same hashes over and over again, not efficient, build a table
 
 	hash_cache = [] # building a cache, so same hashes don't have to be looked up again
 	hash_list = [] # permanently saved hashes from a file, save them to a file
@@ -272,6 +287,7 @@ def checkOnVirusTotal(apikey, process_list, hashfile):
 			done = False
 			for saved_hash in hash_list:
 				if (hash_a == saved_hash):
+					print(hash_a)
 					verbosePrint("Hash was found in the benign hash file")
 					done = True
 
@@ -327,11 +343,6 @@ def checkOnVirusTotal(apikey, process_list, hashfile):
 def verbosePrint(output):
 	if (VERBOSE):
 		print(str(output))
-	else:
-		return
-
-
-
 
 
 
