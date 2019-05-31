@@ -1,4 +1,4 @@
-# processAnalyzer
+# processAnalyzer v8.0
 
 .processAnalyzer is a Python tool to analyze the csv output of the following osquery command:
 
@@ -45,3 +45,10 @@ required arguments:
  - -m {json,analyze,learning}, --mode {json,analyze,learning}
                         choose json to print a json process tree, or analyze
                         to analyze the processes
+
+
+## Examples
+
+Some example files were uploaded already.
+
+More exmaple files and explanations for them are coming....
