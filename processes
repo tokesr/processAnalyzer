@@ -1,0 +1,17 @@
+pid|name|path|parent|cmdline|start_time|elapsed_time|on_disk|md5|sha256
+0|"System Idle Process"|""|0|""|-1|132021941279056622|-1||
+4|System|""|0|""|-1|132021939640356080|-1||
+104|Registry|""|4|""|-1|132021939617447873|-1||
+380|smss.exe|""|4|""|-1|132021939640399817|-1||
+476|csrss.exe|""|464|""|-1|132021939727183980|-1||
+552|wininit.exe|""|464|""|-1|132021939728585393|-1||
+12345|winint.exe|C:\wininit.exe|464|""|-1|132021939728585393|-1||a1260fd3e9221d1bc5b9ece6e7a5a98669c79e124453f2ac58625085759ed3bb
+564|csrss.exe|""|544|""|-1|132021939728653015|-1||
+648|winlogon.exe|C:\Windows\system32\winlogon.exe|544|winlogon.exe|-1|132021939728929986|1|749ca1f1b638e4e4a8a1f0990377012f|823ae63ba5fca8aebaffffc52ed32c4c128ab4801e59a220688460a6b3a1a43b
+692|services.exe|""|552|""|-1|132021939729258534|-1||
+704|lsass.exe|C:\Windows\system32\lsass.exe|552|C:\Windows\system32\lsass.exe|-1|132021939729466337|1|3df3b76b19da92a8adc01ff38560282d|f56dddf7a8f1aa0f3d9ffe0cd618544cfaf233a33314240eccbe5f897a91b534
+828|svchost.exe|c:\windows\system32\svchost.exe|692|"c:\windows\system32\svchost.exe -k dcomlaunch -p -s PlugPlay"|-1|132021939730873788|1|0861726716c9610ce5f6bcf3f4858da1|29f04d5f4b8d798038cb9647178a8b9c68e16dc50da850937f6e993fc7967b75
+852|fontdrvhost.exe|C:\Windows\system32\fontdrvhost.exe|648|"""fontdrvhost.exe"""|-1|132021939730972399|1|6351e0a7e934c3799aeb4b81991e3633|61106ca08778b8e30e5e37ac2eb6876c295f00cf37d1365ff49f7c3513abad50
+860|fontdrvhost.exe|C:\Windows\system32\fontdrvhost.exe|552|"""fontdrvhost.exe"""|-1|132021939730975287|1|6351e0a7e934c3799aeb4b81991e3633|61106ca08778b8e30e5e37ac2eb6876c295f00cf37d1365ff49f7c3513abad50
+892|svchost.exe|C:\Windows\system32\svchost.exe|692|"C:\Windows\system32\svchost.exe -k DcomLaunch -p"|-1|132021939731099257|1|0861726716c9610ce5f6bcf3f4858da1|29f04d5f4b8d798038cb9647178a8b9c68e16dc50da850937f6e993fc7967b75
+
